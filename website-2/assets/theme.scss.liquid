@@ -4830,7 +4830,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 /// Logo
 
 .site-header__logo {
-  margin: 15px 0;
+  margin: 0 auto;
 
   .logo-align--center & {
     text-align: center;
@@ -6253,6 +6253,7 @@ $nav-button-padding: 15px;
   display: none;
   overflow: hidden;
   width: 100%;
+  z-index: 1;
 
   &::after {
     content: '';
@@ -7476,6 +7477,10 @@ $toolbar-height-small: 46px;
   @include media-query($medium-up) {
     max-height: 80vh;
   }
+}
+
+.hero--fullHeight {
+  height: 100vh;
 }
 
 .hero--x-small {
@@ -8713,4 +8718,13 @@ $min-height-disclosure: 92px;
     justify-content: flex-start;
     webkit-justify-content: flex-start;
     -ms-justify-content: flex-start;
+}
+
+.hero--header-edit {
+  position: relative;
+  top: -50px;
+
+  @include media-query($medium-up) {
+    top: -45px;
+  }
 }
