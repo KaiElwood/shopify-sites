@@ -6253,7 +6253,7 @@ $nav-button-padding: 15px;
   display: none;
   overflow: hidden;
   width: 100%;
-  z-index: 1;
+  z-index: 3;
 
   &::after {
     content: '';
@@ -8722,9 +8722,10 @@ $min-height-disclosure: 92px;
 
 .hero--header-edit {
   position: relative;
-  top: -50px;
+  min-height: 475px;
+  // top: -50px;
 
-  @include media-query($medium-up) {
-    top: -45px;
-  }
+  // @include media-query($medium-up) {
+  //   top: -45px;
+  // }
 }

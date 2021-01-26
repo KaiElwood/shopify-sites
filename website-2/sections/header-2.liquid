@@ -19,17 +19,23 @@
 
 <style>
     .site-header-background-color-edit{
-            background-color: {{section.settings.header_color_bg}};
-        }
+        background-color: {{section.settings.header_color_bg}};
+    }
 
-        .site-header-text-color-edit{
-            color: {{section.settings.header_color_text}}
-        }
+    .site-header-text-color-edit{
+        color: {{section.settings.header_color_text}}
+    }
+
+    .image-section-height-edit{
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
 </style>
 
 {% include 'search-drawer' %}
 
-<div data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
+<div data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section class="her--header-edit hero--{{ section.settings.hero_size }}">
     {% if section.settings.message %}
     {% if section.settings.home_page_only == false or request.page_type == 'index' %}
     <style>
@@ -296,7 +302,7 @@
     {%- endif -%}
     <div data-section-id="{{ section.id }}" data-section-type="hero-section">
         {%- if section.settings.hero_layout == 'fixed_width' -%}
-        <div class="page-width hero--header-edit">
+        <div class="page-width">
             {%- endif -%}
             {%- if section.settings.hero_layout == 'fixed_width' and section.settings.hero_size == 'adapt' -%}
             {%- assign slide_width = 1090 -%}
@@ -349,7 +355,7 @@
             </noscript>
         </div>
         {%- else -%}
-        <div class="hero hero--header-edit hero--{{ section.settings.hero_size }} hero-{{ section.id }}{% if section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank %} hero__overlay{% endif %} box ratio-container lazyload js"
+        <div class="hero {% if section.settings.hero_layout != 'fixed_width' %} image-section-height-edit {% endif %} hero--{{ section.settings.hero_size }} hero-{{ section.id }}{% if section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank %} hero__overlay{% endif %} box ratio-container lazyload js"
             id="Hero-{{ section.id }}" data-layout="{{ section.settings.hero_layout }}" {%- if section.settings.image -%} {%
             unless section.settings.image.alt==blank %} role="img" aria-label="{{ section.settings.image.alt | escape }}"
             data-alt="{{ section.settings.image.alt | escape }}" {% endunless %}

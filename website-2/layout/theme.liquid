@@ -118,7 +118,11 @@
     {% include 'cart-popup' %}
   {%- endif -%}
 
-  {% section 'header-2' %}
+  {%- if request.page_type contains 'index' -%}
+    {% section 'header-2' %}
+  {%- else -%}
+    {% section 'header' %}
+  {%- endif -%}
 
   <div class="page-container drawer-page-content" id="PageContainer">
 
